@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="General HTTP API" href="sites/general-http-api.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.09.29"/>
+    <!-- Generated with Sphinx 6.0.0 and Furo 2023.03.27 -->
         <title>MDS Server documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -149,7 +149,7 @@
   <span class="sidebar-brand-text">MDS Server  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -165,6 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sites/groups.html">Groups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sites/address-book.html">Address Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sites/intelligence.html">Intelligence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sites/manual-intel-delivery.html">Manual Intel Delivery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sites/in-app-notifications.html">In-App Notifications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sites/radio-delivery.html">Radio Delivery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sites/development.html">Development</a></li>
@@ -203,7 +204,7 @@
         </div>
         <article role="main">
           <section id="welcome-to-mds-server-s-documentation">
-<h1>Welcome to MDS Server’s documentation!<a class="headerlink" href="#welcome-to-mds-server-s-documentation" title="Permalink to this headline">#</a></h1>
+<h1>Welcome to MDS Server’s documentation!<a class="headerlink" href="#welcome-to-mds-server-s-documentation" title="Permalink to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
@@ -220,7 +221,10 @@
 <li class="toctree-l2"><a class="reference internal" href="sites/api-gateway.html#logging-out">Logging out</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="sites/websocket.html">WebSocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sites/websocket.html">WebSocket</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sites/websocket.html#authentication">Authentication</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="sites/user-management.html">Users</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sites/user-management.html#create-user">Create user</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sites/user-management.html#update-user">Update user</a></li>
@@ -267,6 +271,14 @@
 <li class="toctree-l2"><a class="reference internal" href="sites/intelligence.html#intel-delivery">Intel-delivery</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="sites/manual-intel-delivery.html">Manual Intel Delivery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sites/manual-intel-delivery.html#listen-for-open-intel-deliveries">Listen for open intel deliveries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sites/manual-intel-delivery.html#retrieve-delivery-attempts">Retrieve delivery attempts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sites/manual-intel-delivery.html#manually-schedule-a-delivery-attempt">Manually schedule a delivery attempt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sites/manual-intel-delivery.html#enable-auto-intel-delivery-for-address-book-entries">Enable auto intel delivery for address book entries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sites/manual-intel-delivery.html#cancel-active-intel-delivery">Cancel active intel delivery</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="sites/in-app-notifications.html">In-App Notifications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sites/radio-delivery.html">Radio Delivery</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sites/radio-delivery.html#retrieve-next-radio-delivery-to-deliver">Retrieve next radio delivery to deliver</a></li>
@@ -282,13 +294,14 @@
 <li class="toctree-l2"><a class="reference internal" href="sites/development.html#deploy-for-development-using-skaffold">Deploy for development using Skaffold</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sites/development.html#if-something-goes-wrong">If something goes wrong</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sites/development.html#viewing-logs">Viewing logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sites/development.html#connecting-to-databases">Connecting to databases</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </section>
 <section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">#</a></h1>
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
@@ -322,9 +335,7 @@
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -337,9 +348,8 @@
     </aside>
   </div>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     </body>
 </html>
